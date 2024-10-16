@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+    <style>
+        body {
+            background-color: #f9f9f9; /* Light background color */
+            font-family: 'Arial', sans-serif; /* Font style */
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center; /* Center content */
+            align-items: center; /* Center content vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        form {
+            background-color: #fff; /* White background for the form */
+            border-radius: 8px; /* Rounded corners */
+            padding: 30px; /* Padding inside the form */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            width: 300px; /* Fixed width for the form */
+            transition: transform 0.2s; /* Animation on hover */
+        }
+
+        form:hover {
+            transform: translateY(-5px); /* Slight lift effect */
+        }
+
+        label {
+            display: block; /* Make labels block-level elements */
+            margin: 10px 0 5px; /* Spacing around labels */
+            font-weight: bold; /* Bold text for labels */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px); /* Full width minus padding */
+            padding: 10px; /* Padding inside input fields */
+            margin-bottom: 15px; /* Space below input fields */
+            border: 1px solid #ccc; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px; /* Font size */
+            box-sizing: border-box; /* Include padding and border in element's total width */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff; /* Blue background */
+            color: white; /* White text */
+            border: none; /* No border */
+            padding: 12px 20px; /* Padding for button */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s; /* Smooth background transition */
+            width: 100%; /* Full width for submit button */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 400px) {
+            form {
+                width: 90%; /* Full width on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <form action="signup" method="POST">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+        
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" required>
+        
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        
+        <input type="submit" value="Sign Up">
+    </form>
+</body>
+</html>
